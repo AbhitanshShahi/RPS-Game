@@ -46,7 +46,41 @@ img
     border-radius: 18px;
     padding: 10px 12px;
     transition: 0.15s;
+    color: whitesmoke;
 }
 .reset-btn:hover{
     background-color: rgb(214, 86, 39);
+}
+@media (max-width: 600px) {
+  .rock-move, .paper-move, .scissor-move {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+  }
+
+  .game-picks img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .reset-btn {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .result-game {
+    font-size: 16px;
+  }
+
+  .score {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  span {
+    font-size: 16px;
+  }
 }
