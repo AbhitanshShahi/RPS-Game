@@ -1,16 +1,18 @@
+//Adding comments for future reference
+//In this we are first making few functions that make the rock paper scissor functional by adding JS to it
+
+
 let score = JSON.parse(localStorage.getItem("score")) || {
   win: 0,
   lose: 0,
   tie: 0,
-};
+};                      //This object stores score in local storage so we do not lose data when we refresh
+                       //It uses JSON.parse to get the data from json package. the question arised while coding was that how is it even happening that localStorage is given items to the score object in form of json package, if it is empty we give the keys the value of 0.
 function updateScore() {
   document.querySelector(
     ".game-score"
   ).innerHTML = `Wins: ${score.win}, Loses: ${score.lose},Tie: ${score.tie}`;
-}
-// function WinnerShow() {
-//     document.querySelector('.game-picks').innerHTML = `Your move: ${yourMove} , Computer Move: ${compMove} `;
-// }
+}      //This function works to update the score in the code. It is using DOM in order to make changes to web page attribute to display the scores.
 updateScore();
 
 function CompMovePick() {
@@ -25,7 +27,7 @@ function CompMovePick() {
   }
 
   return compMove;
-}
+}                        //This function is picking the move, It uses math.random() to make the decision of what move to throw. We divide math.random()'s result to 3 parts in order to get the 3 moves generated randomly. this was it will remain random to get the move.
 
 function ResultOfWin(yourMove) {
   const compMove = CompMovePick();
@@ -63,18 +65,18 @@ function ResultOfWin(yourMove) {
       result = "You Lose";
       score.lose++;
     }
-  }
-  localStorage.setItem("score", JSON.stringify(score));
+  }             // This result of win function basically tells us who wins and increases the score accordingly, it increments wins loses and ties.
+  localStorage.setItem("score", JSON.stringify(score)); //here we update the local storage and stringfy the json file in order to use it ahead. 
   updateScore();
-  document.querySelector(".game-result").innerHTML = result;
+  document.querySelector(".game-result").innerHTML = result; //This DOM is showing the result of the game like if you win or lose or it is a tie it will be shown in the webpage.
   document.querySelector(
     ".game-picks"
   ).innerHTML = ` You <img src="${yourMove}-emoji.png" alt="rock">
-      <img src="${compMove}-emoji.png" alt="">Computer`;
+      <img src="${compMove}-emoji.png" alt="">Computer`;  //this DOM is showing the moves according to your pic and the computer's pic
 
-  function updateScore() {
-    document.querySelector(
-      ".game-score"
-    ).innerHTML = `Wins: ${score.win}, Loses: ${score.lose},Tie: ${score.tie}`;
-  }
+  // function updateScore() {
+  //   document.querySelector(
+  //     ".game-score"
+  //   ).innerHTML = `Wins: ${score.win}, Loses: ${score.lose},Tie: ${score.tie}`;
+  // }
 }
